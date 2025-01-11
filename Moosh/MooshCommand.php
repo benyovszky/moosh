@@ -20,7 +20,6 @@ define('ARG_GENERIC', 0);
  */
 define('ARG_EXISTING_FILENAME', 1);
 
-#[\AllowDynamicProperties]
 class MooshCommand {
 
     /**
@@ -255,7 +254,7 @@ class MooshCommand {
                 if ($v === null) {
                     $v = '';
                 }
-                $expanded = str_replace('%s', (string) $arg, (string) $v);
+                $expanded = str_replace('%s', $arg, $v);
                 if ($this->verbose && $v != $expanded) {
                     echo "'$k' expanded from '$v' to '$expanded'\n";
                 }
@@ -278,7 +277,7 @@ class MooshCommand {
                 if ($v === null) {
                     $v = '';
                 }
-                $expanded = str_replace('%s', (string) $arg, (string) $v);
+                $expanded = str_replace('%s', $arg, $v);
                 if ($this->verbose && $v != $expanded) {
                     echo "'$k' manually expanded from '$v' to '$expanded'\n";
                 }
